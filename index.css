@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 30% 7%;
+    --foreground: 220 20% 96%;
+
+    --card: 230 28% 10%;
+    --card-foreground: 220 20% 96%;
+
+    --popover: 230 28% 10%;
+    --popover-foreground: 220 20% 96%;
+
+    --primary: 180 100% 60%;
+    --primary-foreground: 230 40% 8%;
+
+    --secondary: 230 24% 16%;
+    --secondary-foreground: 220 20% 96%;
+
+    --muted: 230 20% 14%;
+    --muted-foreground: 220 14% 70%;
+
+    --accent: 320 100% 65%;
+    --accent-foreground: 230 40% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 180 100% 60%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Disable text selection on game UI */
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 18px hsl(var(--primary) / 0.55), 0 0 4px hsl(var(--primary) / 0.6);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 0 32px hsl(var(--primary) / 0.25);
+  }
+}
